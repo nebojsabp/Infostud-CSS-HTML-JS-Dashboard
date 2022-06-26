@@ -1,0 +1,210 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.618;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/OpenSans-Regular.ttf");
+  src: local(""), url("../fonts/OpenSans-Bold.ttf") format("ttf"),
+    url("../fonts/OpenSans-Medium.ttf") format("ttf"),
+    url("../fonts/OpenSans-Light.ttf") format("ttf");
+}
+
+.overflow-auto-x {
+  overflow-x: auto;
+}
+
+.clients-section {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.side-nav {
+  display: grid;
+}
+
+.search-add {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  padding: 16px 0;
+}
+
+.search-icon {
+  display: grid;
+  align-self: center;
+  padding: 0 20px 0 60px;
+}
+
+.search-field {
+  display: grid;
+  background-color: white;
+  width: 600px;
+  padding: 25px 0 25px 0;
+  border: 0 solid white;
+}
+
+.add-client-btn {
+  display: grid;
+  justify-self: right;
+  align-self: center;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  border: 0 solid;
+  border-radius: 4px;
+  width: 200px;
+  padding: 9px;
+  margin-right: 60px;
+}
+
+.table-container {
+  display: grid;
+  margin-left: 220px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 19px;
+  border: 0.4px solid #c5c5c5;
+  border-radius: 10px;
+  margin: 30px 30px 30px 230px;
+  background: #ffffff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+table {
+  width: 100%;
+  min-width: 1000px;
+  overflow-x: scroll;
+  border-collapse: collapse;
+  padding: 20px 20px;
+}
+
+th,
+td {
+  border: 0.4px solid #c5c5c5;
+  padding: 10px 60px 10px 20px;
+}
+
+th:first-of-type,
+td:first-of-type {
+  border-left: none;
+}
+
+th:last-of-type,
+td:last-of-type {
+  border-right: none;
+  width: 500px;
+}
+
+td:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  width: 120px;
+}
+
+td:first-child img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.options img {
+  margin: 0 10px;
+}
+
+.options img:hover {
+  cursor: pointer;
+}
+
+/*///////////// ADD NEW CLIENT //////////////*/
+
+.new-client {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  display: grid;
+  right: -100%;
+  width: 480px;
+  height: 1000px;
+  padding: 60px 60px 40px 60px;
+  box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px 0px 0px 20px;
+  transition: 0.5s ease-in-out;
+}
+
+.new-client.active {
+  right: 0;
+  position: fixed;
+}
+
+h1 {
+  margin: 0;
+}
+
+.add-img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 11px auto;
+  cursor: pointer;
+}
+
+.new-client input[type="text"] {
+  width: 360px;
+  padding: 3px 0 0 20px;
+  margin: 11px 0;
+}
+
+.text-area {
+  margin-top: 12px;
+  width: 360px;
+  height: 160px;
+}
+
+.btn-options {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding-top: 49px;
+}
+
+.new-cancel-btn,
+.edit-cancel-btn {
+  border: 0 solid;
+  background-color: white;
+  cursor: pointer;
+}
+
+.edit-save-changes,
+.confirm-addclient-btn {
+  justify-self: right;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  border: 0 solid;
+  border-radius: 4px;
+  width: 200px;
+  padding: 9px;
+}

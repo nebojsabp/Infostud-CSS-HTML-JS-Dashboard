@@ -1,0 +1,511 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.618;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("../fonts/OpenSans-Regular.ttf");
+  src: local(""), url("../fonts/OpenSans-Bold.ttf") format("ttf"),
+    url("../fonts/OpenSans-Medium.ttf") format("ttf"),
+    url("../fonts/OpenSans-Light.ttf") format("ttf");
+}
+
+.overflow-auto-x {
+  overflow-x: auto;
+}
+
+.users-section {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.side-nav {
+  display: grid;
+}
+
+.search-add {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  /* display: flex;
+  flex-direction: row; */
+  padding: 16px 0;
+}
+
+.search-icon {
+  display: grid;
+  align-self: center;
+  padding: 0 20px 0 60px;
+}
+
+.search-field {
+  display: grid;
+  background-color: white;
+  width: 600px;
+  padding: 25px 0 25px 0;
+  border: 0 solid white;
+}
+
+input:focus {
+  outline: none;
+}
+
+.add-user-btn {
+  display: grid;
+  justify-self: right;
+  align-self: center;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  border: 0 solid;
+  border-radius: 4px;
+  width: 200px;
+  padding: 9px;
+  margin-right: 60px;
+}
+
+.table-container {
+  display: grid;
+  text-align: left;
+  font-size: 16px;
+  line-height: 19px;
+  border: 0.4px solid #c5c5c5;
+  border-radius: 10px;
+  margin: 30px 30px 30px 230px;
+  background: #ffffff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+table {
+  width: 100%;
+  min-width: 1000px;
+  overflow-x: scroll;
+  border-collapse: collapse;
+  padding: 20px 20px;
+}
+
+th {
+  padding: 30px 0 30px 30px;
+}
+
+td {
+  padding: 10px 0 10px 30px;
+}
+
+th,
+td {
+  border: 0.4px solid #c5c5c5;
+}
+
+th:first-of-type,
+td:first-of-type {
+  border-left: none;
+}
+
+th:last-of-type,
+td:last-of-type {
+  border-right: none;
+}
+
+td:first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  width: 120px;
+}
+
+td:first-child img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.options {
+  display: flex;
+}
+
+.options img {
+  width: 20px;
+}
+
+.eye-pad {
+  margin: 0 24px;
+}
+
+.options img:hover {
+  cursor: pointer;
+}
+
+/*///////////// ADD NEW USER //////////////*/
+
+.new-user {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  display: grid;
+  right: -100%;
+  width: 480px;
+  height: 1000px;
+  padding: 60px 60px 40px 60px;
+  box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px 0px 0px 20px;
+  transition: 0.5s ease-in-out;
+}
+
+.new-user.active {
+  right: 0;
+  position: fixed;
+}
+
+h1 {
+  margin: 0;
+}
+
+.add-img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 11px auto;
+  cursor: pointer;
+}
+
+.new-user input[type="text"] {
+  width: 360px;
+  padding: 3px 0 0 20px;
+  margin: 11px 0;
+}
+
+.btn-options {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding-top: 49px;
+}
+
+.new-cancel-btn,
+.edit-cancel-btn {
+  border: 0 solid;
+  background-color: white;
+  cursor: pointer;
+}
+
+.edit-save-changes,
+.confirm-adduser-btn {
+  justify-self: right;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  border: 0 solid;
+  border-radius: 4px;
+  width: 200px;
+  padding: 9px;
+}
+
+/*///////////// EDIT USER //////////////*/
+
+.edit-user input[type="text"] {
+  width: 360px;
+  padding: 3px 0 0 20px;
+  margin: 11px 0;
+}
+
+.edit-user {
+  position: absolute;
+  z-index: 100;
+  background-color: white;
+  display: grid;
+  right: -100%;
+  width: 480px;
+  height: 1000px;
+  padding: 60px 60px 40px 60px;
+  box-shadow: -2px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 20px 0px 0px 20px;
+  transition: 0.5s ease-in-out;
+}
+
+.edit-user.active {
+  right: 0;
+  position: fixed;
+}
+
+.user-img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 11px auto;
+}
+/*/////////////////////////////*/
+/*///////// MODAL CSS /////////*/
+/*////////////////////////////*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*///////////// MODAL WINDOW CONTENT CSS /////////*/
+.page-container1 {
+  min-width: 1660px;
+  height: 940px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 30px 30px 30px 230px;
+  font-size: 16px;
+  line-height: 19px;
+  border: 0.4px solid #c5c5c5;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.profile-view1 {
+  display: grid;
+  width: 400px;
+  margin: 60px 0 60px 0;
+  padding: 0 80px;
+  border-right: 1px solid #bababa;
+  justify-content: center;
+  align-items: start;
+}
+
+.edit-right1 {
+  display: grid;
+  margin-left: auto;
+  margin: 0 0 25px auto;
+}
+
+.profile-img1 {
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-title {
+  font-size: 30px;
+  margin: 0;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 40px;
+}
+
+span {
+  display: block;
+}
+
+.select {
+  width: 240px;
+  height: 30px;
+}
+
+.counter {
+  width: 60px;
+  height: 30px;
+}
+
+.profile-items1 {
+  display: grid;
+  gap: 20px;
+  /* margin-bottom: 30px; */
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.btn-options1 {
+  display: grid;
+  gap: 30px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.insert-hours-btn1 {
+  display: grid;
+  cursor: pointer;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  color: white;
+  align-self: center;
+  border: 0 solid;
+  border-radius: 4px;
+  width: 240px;
+  padding: 9px;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/*///////////tablecss////////////*/
+
+.table-container1 {
+  padding: 60px 60px 41px 60px;
+}
+
+.modal-table {
+  display: grid;
+  width: 100%;
+  min-width: 1140px;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+.table-container1 th {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.modal-table th:first-of-type {
+  border-left: none;
+  border-top: none;
+  border-radius: 20px 0px 0px 0px;
+}
+
+.modal-table th:last-of-type {
+  border-right: none;
+  border-top: none;
+  border-radius: 0px 20px 0px 0px;
+}
+
+.modal-table tr:not(tr:first-of-type) {
+  border-left: none;
+  border-right: none;
+}
+
+.modal-table th {
+  border: none;
+}
+
+.modal-table tr:nth-child(even) td {
+  background-color: rgba(96, 96, 96, 0.05);
+}
+
+.modal-table tr:nth-child(odd) td {
+  background-color: rgba(96, 96, 96, 0.01);
+}
+
+.modal-table th {
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  color: white;
+  padding: 17px 0;
+}
+
+.modal-table td {
+  border: 0.4px solid white;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.modal-table td:last-of-type {
+  padding: 0 50px;
+}
+
+.opt1:hover {
+  cursor: pointer;
+}
+
+/*///////// DELETE MODAL /////////*/
+.delete-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/*/////////// SHOW DELETE MODAL /////////////*/
+.delete-modal-window {
+  position: absolute;
+  display: grid;
+  margin: auto auto;
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  /* gap: 20px; */
+  padding-top: 30px;
+  /* bottom: 50%;
+  left: 50%;
+  transform: translate(75%, 75%); */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.delete-sure {
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.delete-name {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.delete-yes-btn {
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(180deg, #3372ed 0%, #1138c2 100%);
+  border: 0 solid;
+  border-radius: 4px;
+  width: 200px;
+  padding: 9px;
+}
+
+.delete-no-btn {
+  width: 200px;
+  border: 1px solid #1138c2;
+  border-radius: 4px;
+  background: white;
+  color: #1138c2;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 9px;
+  margin-left: 30px;
+}
